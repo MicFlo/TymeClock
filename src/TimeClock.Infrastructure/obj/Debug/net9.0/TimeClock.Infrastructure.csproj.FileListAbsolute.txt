@@ -1,0 +1,17 @@
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Infrastructure.deps.json
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Infrastructure.runtimeconfig.json
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Infrastructure.dll
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Infrastructure.pdb
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Core.dll
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/bin/Debug/net9.0/TimeClock.Core.pdb
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.csproj.AssemblyReference.cache
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.AssemblyInfoInputs.cache
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.AssemblyInfo.cs
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeCloc.D661FDC3.Up2Date
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.dll
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/refint/TimeClock.Infrastructure.dll
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.pdb
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/TimeClock.Infrastructure.genruntimeconfig.cache
+/Users/wardfail/Repos/TimeClock/src/TimeClock.Infrastructure/obj/Debug/net9.0/ref/TimeClock.Infrastructure.dll

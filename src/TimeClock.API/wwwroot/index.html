@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeClock - Employee Time Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(81, 207, 102, 0.3);
+        }
+
+        .punch-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .punch-btn {
+            padding: 20px;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .punch-btn.clock-in {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+        }
+
+        .punch-btn.clock-out {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+
+        .punch-btn.lunch {
+            background: linear-gradient(135deg, #ffd93d 0%, #ffc107 100%);
+            color: #333;
+        }
+
+        .punch-btn.transfer {
+            background: linear-gradient(135deg, #74c0fc 0%, #339af0 100%);
+        }
+
+        .punch-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .punch-btn i {
+            font-size: 24px;
+        }
+
+        .time-display {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .current-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .current-date {
+            font-size: 1.1rem;
+            color: #718096;
+        }
+
+        .time-punches {
+            grid-column: 1 / -1;
+        }
+
+        .time-punch-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .time-punch-item:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .punch-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .punch-type {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .punch-type.in { background: #d4edda; color: #155724; }
+        .punch-type.out { background: #f8d7da; color: #721c24; }
+        .punch-type.lunch { background: #fff3cd; color: #856404; }
+        .punch-type.transfer { background: #d1ecf1; color: #0c5460; }
+
+        .punch-time {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .punch-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-clocked-in { background: #51cf66; }
+        .status-clocked-out { background: #ff6b6b; }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .punch-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-clock"></i> TimeClock</h1>
+            <p>Professional Employee Time Management System</p>
+        </div>
+
+        <div class="alert alert-success" id="successAlert"></div>
+        <div class="alert alert-error" id="errorAlert"></div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2><i class="fas fa-user"></i> Employee Information</h2>
+                <div class="form-group">
+                    <label for="userId">Employee ID</label>
+                    <input type="text" id="userId" class="form-control" placeholder="Enter your employee ID" value="EMP001">
+                </div>
+                <div class="time-display">
+                    <div class="current-time" id="currentTime"></div>
+                    <div class="current-date" id="currentDate"></div>
+                </div>
+                <div class="punch-buttons">
+                    <button class="punch-btn clock-in" onclick="submitPunch('In')">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Clock In
+                    </button>
+                    <button class="punch-btn clock-out" onclick="submitPunch('Out')">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Clock Out
+                    </button>
+                    <button class="punch-btn lunch" onclick="submitPunch('Lunch')">
+                        <i class="fas fa-utensils"></i>
+                        Lunch
+                    </button>
+                    <button class="punch-btn transfer" onclick="submitPunch('Transfer')">
+                        <i class="fas fa-exchange-alt"></i>
+                        Transfer
+                    </button>
+                </div>
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Today's Activity</h2>
+                <div id="todayPunches">
+                    <p style="text-align: center; color: #718096; padding: 40px;">No punches recorded today</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card time-punches">
+            <h2><i class="fas fa-list"></i> All Time Punches</h2>
+            <div id="allPunches">
+                <p style="text-align: center; color: #718096; padding: 40px;">Loading time punches...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUserId = 'EMP001';
+        let allPunches = [];
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Submit time punch
+        async function submitPunch(type) {
+            const loading = document.getElementById('loading');
+            const userId = document.getElementById('userId').value;
+            
+            if (!userId.trim()) {
+                showAlert('Please enter an Employee ID', 'error');
+                return;
+            }
+
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/timepunch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        userId: userId,
+                        type: type,
+                        notes: ''
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    showAlert(`Successfully clocked ${type.toLowerCase()}!`, 'success');
+                    currentUserId = userId;
+                    loadTimePunches();
+                } else {
+                    const error = await response.json();
+                    showAlert(`Error: ${error.error || 'Failed to submit punch'}`, 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Load time punches for current user
+        async function loadTimePunches() {
+            const userId = document.getElementById('userId').value;
+            if (!userId.trim()) return;
+
+            try {
+                const response = await fetch(`/api/timepunch/user/${userId}`);
+                if (response.ok) {
+                    allPunches = await response.json();
+                    displayTimePunches();
+                }
+            } catch (error) {
+                console.error('Error loading time punches:', error);
+            }
+        }
+
+        // Display time punches
+        function displayTimePunches() {
+            const todayPunches = document.getElementById('todayPunches');
+            const allPunchesDiv = document.getElementById('allPunches');
+
+            // Filter today's punches
+            const today = new Date().toDateString();
+            const todayPunchList = allPunches.filter(punch => 
+                new Date(punch.timestamp).toDateString() === today
+            );
+
+            // Display today's punches
+            if (todayPunchList.length === 0) {
+                todayPunches.innerHTML = '<p style="text-align: center; color: #718096; padding: 40px;">No punches recorded today</p>';
+            } else {
+                todayPunches.innerHTML = todayPunchList.map(punch => createPunchHTML(punch)).join('');
+            }
+
+            // Display all punches
+            if (allPunches.length === 0) {
+                allPunchesDiv.innerHTML = '<p style="text-align: center; color: #718096; padding: 40px;">No punches recorded</p>';
+            } else {
+                allPunchesDiv.innerHTML = allPunches.map(punch => createPunchHTML(punch, true)).join('');
+            }
+        }
+
+        // Create HTML for a time punch
+        function createPunchHTML(punch, showActions = false) {
+            const punchTime = new Date(punch.timestamp).toLocaleString();
+            const actions = showActions ? `
+                <div class="punch-actions">
+                    <button class="btn btn-success btn-sm" onclick="editPunch(${punch.id})">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="deletePunch(${punch.id})">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            ` : '';
+
+            return `
+                <div class="time-punch-item">
+                    <div class="punch-info">
+                        <span class="punch-type ${punch.type.toLowerCase()}">${punch.type}</span>
+                        <span class="punch-time">${punchTime}</span>
+                        ${punch.notes ? `<span style="color: #718096;">${punch.notes}</span>` : ''}
+                    </div>
+                    ${actions}
+                </div>
+            `;
+        }
+
+        // Edit time punch
+        async function editPunch(id) {
+            const punch = allPunches.find(p => p.id === id);
+            if (!punch) return;
+
+            const newType = prompt('Enter new punch type (In, Out, Lunch, Transfer):', punch.type);
+            if (!newType) return;
+
+            const newTimestamp = prompt('Enter new timestamp (YYYY-MM-DD HH:MM:SS):', 
+                new Date(punch.timestamp).toISOString().slice(0, 19).replace('T', ' '));
+            if (!newTimestamp) return;
+
+            const newNotes = prompt('Enter new notes:', punch.notes || '');
+
+            try {
+                const response = await fetch(`/api/timepunch/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        type: newType,
+                        timestamp: new Date(newTimestamp),
+                        notes: newNotes
+                    })
+                });
+
+                if (response.ok) {
+                    showAlert('Time punch updated successfully!', 'success');
+                    loadTimePunches();
+                } else {
+                    const error = await response.json();
+                    showAlert(`Error: ${error.error || 'Failed to update punch'}`, 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            }
+        }
+
+        // Delete time punch
+        async function deletePunch(id) {
+            if (!confirm('Are you sure you want to delete this time punch?')) return;
+
+            try {
+                const response = await fetch(`/api/timepunch/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    showAlert('Time punch deleted successfully!', 'success');
+                    loadTimePunches();
+                } else {
+                    const error = await response.json();
+                    showAlert(`Error: ${error.error || 'Failed to delete punch'}`, 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            }
+        }
+
+        // Show alert message
+        function showAlert(message, type) {
+            const alert = document.getElementById(`${type}Alert`);
+            alert.textContent = message;
+            alert.style.display = 'block';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+
+        // Load punches when user ID changes
+        document.getElementById('userId').addEventListener('change', loadTimePunches);
+
+        // Load initial data
+        loadTimePunches();
+    </script>
+</body>
+</html>
