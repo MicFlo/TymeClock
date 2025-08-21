@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/wardfail/Repos/TimeClock/src/TimeClock.Core/TimeClock.Core.csproj": {}
+    "/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/TimeClock.Core.csproj": {}
   },
   "projects": {
-    "/Users/wardfail/Repos/TimeClock/src/TimeClock.Core/TimeClock.Core.csproj": {
+    "/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/TimeClock.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/wardfail/Repos/TimeClock/src/TimeClock.Core/TimeClock.Core.csproj",
+        "projectUniqueName": "/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/TimeClock.Core.csproj",
         "projectName": "TimeClock.Core",
-        "projectPath": "/Users/wardfail/Repos/TimeClock/src/TimeClock.Core/TimeClock.Core.csproj",
+        "projectPath": "/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/TimeClock.Core.csproj",
         "packagesPath": "/Users/wardfail/.nuget/packages/",
-        "outputPath": "/Users/wardfail/Repos/TimeClock/src/TimeClock.Core/obj/",
+        "outputPath": "/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/wardfail/.nuget/NuGet/NuGet.Config"

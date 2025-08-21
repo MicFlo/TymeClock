@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TimeClock.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+455325526e7b2b3ce00aa4e187a84034651d7ba7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TimeClock.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TimeClock.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

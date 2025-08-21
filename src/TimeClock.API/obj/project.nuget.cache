@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tXO8XIbloOo=",
+  "dgSpecHash": "BbpPrqUINnM=",
   "success": true,
-  "projectFilePath": "/Users/wardfail/Repos/TimeClock/src/TimeClock.API/TimeClock.API.csproj",
+  "projectFilePath": "/Users/wardfail/Repos/TymeClock/src/TimeClock.API/TimeClock.API.csproj",
   "expectedPackageFiles": [
     "/Users/wardfail/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/wardfail/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

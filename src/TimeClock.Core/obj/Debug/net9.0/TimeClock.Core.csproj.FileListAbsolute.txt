@@ -9,3 +9,15 @@
 /Users/wardfail/Repos/TimeClock/src/TimeClock.Core/obj/Debug/net9.0/refint/TimeClock.Core.dll
 /Users/wardfail/Repos/TimeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.pdb
 /Users/wardfail/Repos/TimeClock/src/TimeClock.Core/obj/Debug/net9.0/ref/TimeClock.Core.dll
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/bin/Debug/net9.0/TimeClock.Core.deps.json
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/bin/Debug/net9.0/TimeClock.Core.dll
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/bin/Debug/net9.0/TimeClock.Core.pdb
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.AssemblyInfoInputs.cache
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.AssemblyInfo.cs
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.csproj.CoreCompileInputs.cache
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.sourcelink.json
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.dll
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/refint/TimeClock.Core.dll
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/TimeClock.Core.pdb
+/Users/wardfail/Repos/TymeClock/src/TimeClock.Core/obj/Debug/net9.0/ref/TimeClock.Core.dll
